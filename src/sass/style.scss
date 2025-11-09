@@ -1,0 +1,58 @@
+@charset "UTF-8";
+
+/* *****************************************/
+/*    css
+/*    V #{$VERSION}
+/*        by AuOzzy
+/******************************************/
+@use "sass:math";
+// @use "core";
+
+/* ↓↓↓ ***** RESET START ***** ↓↓↓ */
+@use "generate/base/reset";
+/* ↑↑↑ ***** RESET END ***** ↑↑↑ */
+
+/* ↓↓↓ ***** ROOT START ***** ↓↓↓ */
+@use "generate/base/root";
+/* ↑↑↑ ***** ROOT END ***** ↑↑↑ */
+
+/* ↓↓↓ ***** FONT START ***** ↓↓↓ */
+@use "generate/base/font";
+/* ↑↑↑ ***** FONT END ***** ↑↑↑ */
+
+/* ↓↓↓ ***** COMMON START ***** ↓↓↓ */
+@use "generate/base/common";
+/* ↑↑↑ ***** COMMON END ***** ↑↑↑ */
+
+/* ↓↓↓ ***** COMPONENT START ***** ↓↓↓ */
+@use "components/svgtxt";
+@use "components/form-wrap";
+@use "components/form-field";
+@use "components/form-rcx";
+/* ↑↑↑ ***** COMPONENT END ***** ↑↑↑ */
+
+/* ↓↓↓ ***** KEYFRAMES START ***** ↓↓↓ */
+// @import "generate/keyframes";
+/* ↑↑↑ ***** KEYFRAMES END ***** ↑↑↑ */
+
+/* ↓↓↓ ***** LAYOUT START ***** ↓↓↓ */
+// @import "frontend/layout/body_wrap";
+// @import "frontend/layout/container";
+// @import "frontend/layout/screen";
+// @import "frontend/layout/tw_section";
+/* ↑↑↑ ***** LAYOUT END ***** ↑↑↑ */
+
+/* ↓↓↓ ***** ENTRY START ***** ↓↓↓ */
+@use "frontend/entry/cut-1";
+@use "frontend/entry/cut-2";
+@use "frontend/entry/cut-3";
+@use "frontend/entry/cut-4";
+@use "frontend/entry/footer";
+// @use "frontend/entry/section-screen-bg";
+
+
+/* ↑↑↑ ***** ENTRY END ***** ↑↑↑ */
+
+
+/* animate.css - https://animate.style/ */
+// @import "generate/animate";

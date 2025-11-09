@@ -1,0 +1,118 @@
+@use "../../abstracts/functions/set-vw" as *;
+@use "../../abstracts/mixin/wh" as *;
+@use "../../abstracts/mixin/position" as *;
+@use "../../abstracts/mixin/gradient" as *;
+@use "../../abstracts/mixin/psudoClass" as *;
+@use "../../abstracts/mixin/media" as *;
+@use "../../abstracts/mixin/svgtxt" as *;
+
+.cut-4 {
+    position: relative;
+    padding-top: set-vw(303, 1920);
+}
+
+.contact-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: set-vw(130, 1920);
+
+    @include rwd-tablet() {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+.contact-map {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: set-vw(43, 1920);
+    width: set-vw(646, 1920);
+
+    @include rwd-tablet() {
+        width: set-vw(560, 768);
+    }
+
+    .title {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: set-vw(33, 1920);
+    }
+
+    .line {
+        display: block;
+        width: set-vw(106, 1920);
+        height: 1px;
+        background-color: var(--primary-1);
+    }
+}
+
+.contact-form {
+    width: set-vw(548, 1920);
+    @include rwd-tablet() {
+        width: set-vw(433, 768);
+    }
+}
+
+.form-info {
+    padding-top: set-vw(113 - 57, 1920);
+    font-size: max(set-vw(14, 1920), 14px);
+
+    @include rwd-tablet() {
+        font-size: set-vw(16, 768);
+    }
+}
+
+.form-btn {
+    @include rwd-tablet() {
+        display: flex;
+        justify-content: center;
+    }
+}
+
+.btn-send {
+    border: 1px solid var(--primary-1);
+    padding: set-vw(8, 1920) set-vw(32, 1920);
+    background-color: transparent;
+    border-radius: set-vw(8, 1920);
+    color: var(--primary-1);
+    font-size: set-vw(35, 1920);
+    line-height: 1;
+    cursor: pointer;
+
+    @include rwd-tablet() {
+        padding: set-vw(8, 768) set-vw(32, 768);
+        font-size: set-vw(35, 768);
+    }
+}
+
+.contact-hd {
+    flex-direction: column;
+    align-items: center;
+    gap: set-vw(27, 768);
+    text-align: center;
+
+    &.show-mobile.show-mobile {
+        display: flex;
+    }
+    .title {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: set-vw(48, 768);
+    }
+    .txt {
+        font-size: set-vw(20, 768);
+    }
+    .line {
+        display: block;
+        width: set-vw(106, 768);
+        height: 1px;
+        background-color: var(--primary-1);
+    }
+    .svgtxt {
+        @include svgtxt(0, 28, 274);
+    }
+}

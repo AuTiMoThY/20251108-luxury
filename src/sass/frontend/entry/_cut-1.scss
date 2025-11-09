@@ -1,0 +1,21 @@
+@use "../../abstracts/mixin/wh" as *;
+@use "../../abstracts/mixin/position" as *;
+@use "../../abstracts/mixin/media" as *;
+.cut-1 {
+    &-video {
+        position: relative;
+        @include wh();
+        aspect-ratio: 16 / 9;
+        overflow: hidden; // 隱藏超出範圍的部分，讓 parallax 效果更自然
+        @include rwd-tablet() {
+            aspect-ratio: 1382 / 2160;
+        }
+        video {
+            @include absolute(0, $L: 0);
+            @include wh();
+            height: 120%; // 增加高度以配合 parallax 移動效果
+            object-fit: cover;
+            transform: translateY(-10%); // 初始位置向上偏移
+        }
+    }
+}

@@ -1,0 +1,17 @@
+// .container {
+//     width: auto;
+//     max-width: 100%;
+//     margin-left: set-vw(32);
+//     margin-right: set-vw(32);
+// }
+
+.container {
+    width: var(--container-width);
+    margin: auto;
+    // padding-left: min-set-vw(90, 1920);
+    // padding-right: min-set-vw(90, 1920);
+
+    // @include media-down(1280) {
+    //     width: relative-percentage((375 - 16 * 2), 375);
+    // }
+}

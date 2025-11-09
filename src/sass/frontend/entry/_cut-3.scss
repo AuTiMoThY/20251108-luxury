@@ -1,0 +1,99 @@
+@use "../../abstracts/functions/set-vw" as *;
+@use "../../abstracts/mixin/wh" as *;
+@use "../../abstracts/mixin/position" as *;
+@use "../../abstracts/mixin/gradient" as *;
+@use "../../abstracts/mixin/psudoClass" as *;
+@use "../../abstracts/mixin/svgtxt" as *;
+@use "../../abstracts/mixin/media" as *;
+
+.cut-3 {
+    padding-top: set-vw(243, 1920);
+    overflow: hidden;
+    .section-container {
+        display: flex;
+        flex-direction: column;
+        gap: set-vw(218, 1920);
+    }
+}
+
+.cut-3-row {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 0 set-vw(75, 1920);
+
+    &:nth-child(odd) {
+        flex-direction: row-reverse;
+    }
+    @include rwd-tablet() {
+        padding: 0;
+        gap: set-vw(83, 768);
+        flex-direction: column-reverse;
+        &:nth-child(odd) {
+            flex-direction: column-reverse;
+        }
+    }
+}
+
+.cut-3-col {
+}
+
+.cut-3-img {
+    width: set-vw(979, 1920);
+
+    @include rwd-tablet() {
+        width: 100%;
+        overflow-x: scroll;
+        img {
+            width: set-vw(1386, 768);
+            aspect-ratio: 1386 / 405;
+            max-width: none;
+        }
+    }
+}
+
+.cut-3-content {
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: set-vw(42, 1920);
+
+    text-align: center;
+
+    &-hd {
+        display: flex;
+        flex-direction: column;
+        gap: set-vw(29, 1920);
+        @include rwd-tablet() {
+            gap: set-vw(21, 768);
+        }
+    }
+
+    &-bd {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .subtitle {
+        font-size: set-vw(30, 1920);
+        font-weight: bold;
+        @include rwd-tablet() {
+            font-size: set-vw(23, 768);
+        }
+    }
+    .txt {
+        font-size: set-vw(20, 1920);
+        @include rwd-tablet() {
+            font-size: set-vw(15, 768);
+        }
+    }
+}
+
+.cut-3-row-1 {
+    .title {
+        @include svgtxt(561, 54, 439);
+    }
+}

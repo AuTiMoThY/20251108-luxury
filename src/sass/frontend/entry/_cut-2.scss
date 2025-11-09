@@ -1,0 +1,115 @@
+@use "../../abstracts/functions/set-vw" as *;
+@use "../../abstracts/mixin/wh" as *;
+@use "../../abstracts/mixin/position" as *;
+@use "../../abstracts/mixin/gradient" as *;
+@use "../../abstracts/mixin/psudoClass" as *;
+@use "../../abstracts/mixin/svgtxt" as *;
+@use "../../abstracts/mixin/media" as *;
+
+.cut-2-slide {
+    position: relative;
+    &-img {
+        picture {
+            aspect-ratio: 1925 / 1523;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            @include rwd-tablet() {
+                aspect-ratio: 1000 / 1572;
+            }
+        }
+    }
+
+    &-content {
+        @include absolute($R: 0, $L: 0);
+        top: set-vw(103, 1920);
+        z-index: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+
+        &-line {
+            width: 1px;
+            height: set-vw(113, 1920);
+            background-color: #fff;
+            margin-bottom: set-vw(23, 1920);
+            @include rwd-tablet() {
+                height: set-vw(88, 768);
+                margin-bottom: set-vw(25, 768);
+            }
+        }
+    }
+
+    &.slide-1 {
+        .txt-1 {
+            @include svgtxt(209, 32, 192);
+            margin-bottom: set-vw(20, 1920);
+            @include rwd-tablet() {
+                margin-bottom: set-vw(14, 768);
+            }
+        }
+        .txt-2 {
+            @include svgtxt(526, 69, 410);
+            margin-bottom: set-vw(10, 1920);
+            @include rwd-tablet() {
+                margin-bottom: set-vw(25, 768);
+            }
+        }
+        .txt-3 {
+            @include svgtxt(1015, 44, 628);
+            margin-bottom: set-vw(33, 1920);
+            @include rwd-tablet() {
+                margin-bottom: set-vw(25, 768);
+            }
+        }
+        .txt-4 {
+            @include svgtxt(650, 31, 506);
+            @include rwd-tablet() {
+                margin-bottom: set-vw(25, 768);
+            }
+        }
+    }
+
+    &.slide-2 {
+        .txt-1 {
+            @include svgtxt(209, 32, 192);
+            margin-bottom: set-vw(20, 1920);
+            @include rwd-tablet() {
+                margin-bottom: set-vw(14, 768);
+            }
+        }
+        .txt-2 {
+            @include svgtxt(526, 69, 410);
+            margin-bottom: set-vw(10, 1920);
+            @include rwd-tablet() {
+                margin-bottom: set-vw(25, 768);
+            }
+        }
+        .txt-3 {
+            @include svgtxt(790, 64, 511);
+            margin-bottom: set-vw(33, 1920);
+            @include rwd-tablet() {
+                margin-bottom: set-vw(25, 768);
+            }
+        }
+        .txt-4 {
+            @include svgtxt(536, 31, 423);
+            @include rwd-tablet() {
+                margin-bottom: set-vw(25, 768);
+            }
+        }
+    }
+
+    &-pattern {
+        @include absolute($B: 0, $L: 50%);
+        bottom: set-vw(49, 1920);
+        transform: translateX(-50%);
+        width: set-vw(1239, 1920);
+        @include rwd-tablet() {
+            bottom: set-vw(59, 1920);
+            width: set-vw(735, 768);
+        }
+    }
+}
+

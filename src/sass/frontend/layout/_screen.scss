@@ -1,0 +1,11 @@
+[class*="screen-"] {
+    position: relative;
+    // background-color: #000;
+
+    .screen-bg {
+        @include absolute(0);
+        z-index: 1;
+        width: 100%;
+        pointer-events: none;
+    }
+}

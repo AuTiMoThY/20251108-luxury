@@ -1,0 +1,9 @@
+.body_wrap {
+    overflow: hidden;
+    @include media-down(1280) {
+        padding-bottom: calc(var(--footer-nav-item-height) + 23px);
+    }
+    // position: relative;
+    // background-color: #f5f5f5;
+    // padding-top: var(--header-main-height);
+}
