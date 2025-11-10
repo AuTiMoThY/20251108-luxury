@@ -1,5 +1,5 @@
 import { mediaQuery } from "../common/mediaQuery";
-import { commonScrollTrigger } from "../common/scroll-trigger";
+import { commonScrollTrigger } from "../common/commonScrollTrigger";
 
 export const cut2Ani = {
     txtFrom: {

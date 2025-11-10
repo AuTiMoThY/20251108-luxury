@@ -81,19 +81,23 @@
         font-size: set-vw(30, 1920);
         font-weight: bold;
         @include rwd-tablet() {
-            font-size: set-vw(23, 768);
+            font-size: 4.5vw;
         }
     }
     .txt {
         font-size: set-vw(20, 1920);
         @include rwd-tablet() {
-            font-size: set-vw(15, 768);
+            font-size: 3.5vw;
+        }
+
+        @include rwd-mobile() {
+
         }
     }
 }
 
 .cut-3-row-1 {
     .title {
-        @include svgtxt(561, 54, 439);
+        @include svgtxt(561, 54, 439 * 1.2);
     }
 }

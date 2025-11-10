@@ -29,6 +29,10 @@
         align-items: center;
         width: 100%;
 
+        @include rwd-tablet() {
+            top: set-vw(84, 768);
+        }
+
         &-line {
             .inner {
                 width: 1px;
