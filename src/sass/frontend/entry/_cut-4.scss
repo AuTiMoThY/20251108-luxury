@@ -88,31 +88,34 @@
     }
 }
 
-.contact-hd {
-    flex-direction: column;
-    align-items: center;
-    gap: set-vw(27, 768);
-    text-align: center;
+@include rwd-tablet() {
 
-    &.show-mobile.show-mobile {
-        display: flex;
-    }
-    .title {
-        display: flex;
+    .contact-hd {
+        flex-direction: column;
         align-items: center;
-        justify-content: center;
-        gap: set-vw(48, 768);
-    }
-    .txt {
-        font-size: set-vw(20, 768);
-    }
-    .line {
-        display: block;
-        width: set-vw(106, 768);
-        height: 1px;
-        background-color: var(--primary-1);
-    }
-    .svgtxt {
-        @include svgtxt(0, 28, 274);
+        gap: set-vw(27, 768);
+        text-align: center;
+    
+        &.show-mobile.show-mobile {
+            display: flex;
+        }
+        .title {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: set-vw(48, 768);
+        }
+        .txt {
+            font-size: set-vw(20, 768);
+        }
+        .line {
+            display: block;
+            width: set-vw(106, 768);
+            height: 1px;
+            background-color: var(--primary-1);
+        }
+        .svgtxt {
+            @include svgtxt(0, 28, 274);
+        }
     }
 }

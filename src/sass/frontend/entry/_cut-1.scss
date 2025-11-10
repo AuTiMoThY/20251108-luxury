@@ -5,7 +5,7 @@
     &-video {
         position: relative;
         @include wh();
-        aspect-ratio: 16 / 9;
+        aspect-ratio: 3840 / 2160;
         overflow: hidden; // 隱藏超出範圍的部分，讓 parallax 效果更自然
         @include rwd-tablet() {
             aspect-ratio: 1382 / 2160;
@@ -13,9 +13,9 @@
         video {
             @include absolute(0, $L: 0);
             @include wh();
-            height: 120%; // 增加高度以配合 parallax 移動效果
+            // height: 120%; // 增加高度以配合 parallax 移動效果
             object-fit: cover;
-            transform: translateY(-10%); // 初始位置向上偏移
+            // transform: translateY(-10%); // 初始位置向上偏移
         }
     }
 }

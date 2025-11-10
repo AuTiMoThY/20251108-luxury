@@ -17,16 +17,6 @@ export const cut1ResponsiveVideo = () => {
     mq.addEventListener("change", updateVideo);
 };
 
-export const cut1Ani = {
-    start() {
-        const tl = gsap.timeline();
-        tl.from(".cut-1-video video", {
-            duration: 1,
-            scale: 1.2,
-        });
-    },
-};
-
 /**
  * Cut-1 Parallax 效果
  * 當畫面滾動時，影片會產生視差效果
@@ -40,25 +30,25 @@ export const cut1Parallax = () => {
     // 影片容器的 parallax 效果
     gsap.to(video, {
         y: "20%", // 向下移動
+        scale: 1.1,
         ease: "none",
         scrollTrigger: {
             trigger: videoContainer,
-            start: "top bottom", // 當容器頂部碰到視窗底部時開始
+            start: "10% top", // 當容器頂部碰到視窗底部時開始
             end: "bottom top", // 當容器底部碰到視窗頂部時結束
             scrub: true, // 讓動畫跟隨滾動進度
             // markers: true, // 開發時可開啟此選項來調試
         }
     });
 
-    // 額外的 scale 效果，增加深度感
-    gsap.to(video, {
-        scale: 1.1,
-        ease: "none",
-        scrollTrigger: {
-            trigger: videoContainer,
-            start: "top bottom",
-            end: "center center",
-            scrub: true,
-        }
-    });
+    // // 額外的 scale 效果，增加深度感
+    // gsap.to(video, {
+    //     ease: "none",
+    //     scrollTrigger: {
+    //         trigger: videoContainer,
+    //         start: "top bottom",
+    //         end: "center center",
+    //         scrub: true,
+    //     }
+    // });
 };

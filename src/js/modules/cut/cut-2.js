@@ -17,17 +17,17 @@ export const cut2Ani = {
         this.slide1Pattern();
     },
     slideTxt1(tl) {
-        tl.from(".cut-2-slide .txt-1, .cut-2-slide .txt-2", this.txtFrom);
+        tl.from(".cut-2-slide .txt-1 .inner, .cut-2-slide .txt-2 .inner", this.txtFrom);
     },
     slideLine(tl) {
-        tl.from(".cut-2-slide .cut-2-slide-content-line", {
+        tl.from(".cut-2-slide .cut-2-slide-content-line .inner", {
             scale: 0,
             y: mediaQuery() ? "3vw" : "6vw",
             duration: 1,
         }, "<+0.65");
     },
     slideTxt3(tl) {
-        tl.from(".cut-2-slide .txt-3, .cut-2-slide .txt-4", this.txtFrom, "<+0.65");
+        tl.from(".cut-2-slide .txt-3 .inner, .cut-2-slide .txt-4 .inner", this.txtFrom, "<+0.65");
     },
     slide1Pattern() {
         gsap.from(".cut-2-slide .cut-2-slide-pattern", {

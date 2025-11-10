@@ -37,27 +37,27 @@
         // 影片容器的 parallax 效果
         gsap.to(video, {
             y: "20%", // 向下移動
+            scale: 1.1,
             ease: "none",
             scrollTrigger: {
                 trigger: videoContainer,
-                start: "top bottom", // 當容器頂部碰到視窗底部時開始
+                start: "10% top", // 當容器頂部碰到視窗底部時開始
                 end: "bottom top", // 當容器底部碰到視窗頂部時結束
                 scrub: true, // 讓動畫跟隨滾動進度
                 // markers: true, // 開發時可開啟此選項來調試
             }
         });
 
-        // 額外的 scale 效果，增加深度感
-        gsap.to(video, {
-            scale: 1.1,
-            ease: "none",
-            scrollTrigger: {
-                trigger: videoContainer,
-                start: "top bottom",
-                end: "center center",
-                scrub: true,
-            }
-        });
+        // // 額外的 scale 效果，增加深度感
+        // gsap.to(video, {
+        //     ease: "none",
+        //     scrollTrigger: {
+        //         trigger: videoContainer,
+        //         start: "top bottom",
+        //         end: "center center",
+        //         scrub: true,
+        //     }
+        // });
     };
 
     /**
@@ -103,17 +103,17 @@
             this.slide1Pattern();
         },
         slideTxt1(tl) {
-            tl.from(".cut-2-slide .txt-1, .cut-2-slide .txt-2", this.txtFrom);
+            tl.from(".cut-2-slide .txt-1 .inner, .cut-2-slide .txt-2 .inner", this.txtFrom);
         },
         slideLine(tl) {
-            tl.from(".cut-2-slide .cut-2-slide-content-line", {
+            tl.from(".cut-2-slide .cut-2-slide-content-line .inner", {
                 scale: 0,
                 y: mediaQuery() ? "3vw" : "6vw",
                 duration: 1,
             }, "<+0.65");
         },
         slideTxt3(tl) {
-            tl.from(".cut-2-slide .txt-3, .cut-2-slide .txt-4", this.txtFrom, "<+0.65");
+            tl.from(".cut-2-slide .txt-3 .inner, .cut-2-slide .txt-4 .inner", this.txtFrom, "<+0.65");
         },
         slide1Pattern() {
             gsap.from(".cut-2-slide .cut-2-slide-pattern", {
@@ -130,7 +130,7 @@
     };
 
     const cut3Ani = {
-        txtVarsProperty : {
+        txtVarsProperty: {
             y: "3vw",
             scale: !mediaQuery().matches ? 1.1 : 1.4,
             stagger: 0.15,
@@ -143,8 +143,8 @@
                 scrollTrigger: {
                     markers: true,
                     trigger: ".cut-3-row-1",
-                    start: "10% 75%",
-                    end: "50% 75%",
+                    start: "-20% 75%",
+                    end: "+=50%",
                     scrub: 1
                 }
             });
@@ -153,8 +153,8 @@
                 scrollTrigger: {
                     // markers: true,
                     trigger: ".cut-3-row-2",
-                    start: "10% 75%",
-                    end: "center 75%",
+                    start: "-20% 75%",
+                    end: "+=50%",
                     scrub: 1
                 }
             });
@@ -166,12 +166,13 @@
             this.row2SubtitleAni(row2Tl, "<+0.3");
             this.row2TxtAni(row2Tl, "<+0.3");
             this.row2ImgAni(row2Tl, "<+0.3");
-
         },
         row1TitleAni(tl, aniPosition = null) {
+            tl.addLabel("title");
             tl.from(".cut-3-row-1 .title", this.txtVarsProperty, aniPosition);
         },
         row1SubtitleAni(tl, aniPosition = null) {
+            tl.addLabel("subtitle");
             tl.from(".cut-3-row-1 .subtitle", this.txtVarsProperty, aniPosition);
         },
         row1TxtAni(tl, aniPosition = null) {
@@ -181,7 +182,7 @@
                 // mask: "lines",
                 autoSplit: true,
                 onSplit(self) {
-                    return tl.from(self.words, {
+                    return tl.addLabel("txt").from(self.words, {
                         duration: 2,
                         y: 100,
                         autoAlpha: 0,
@@ -191,15 +192,30 @@
             });
         },
         row1ImgAni(tl, aniPosition = null) {
-            tl.from(".cut-3-row-1 .cut-3-img img", {
-                duration: 1,
-                scale: 1.2,
-            }, aniPosition);
+            gsap.timeline({
+                scrollTrigger: {
+                    // markers: true,
+                    trigger: ".cut-3-row-1",
+                    start: "top 75%",
+                    end: "bottom 75%",
+                    scrub: 1
+                }
+            })
+            .from(
+                ".cut-3-row-1 .cut-3-img img",
+                {
+                    duration: 1,
+                    scale: 1.2
+                },
+                aniPosition
+            );
         },
         row2TitleAni(tl, aniPosition = null) {
+            tl.addLabel("title2");
             tl.from(".cut-3-row-2 .title", this.txtVarsProperty, aniPosition);
         },
         row2SubtitleAni(tl, aniPosition = null) {
+            tl.addLabel("subtitle2");
             tl.from(".cut-3-row-2 .subtitle", this.txtVarsProperty, aniPosition);
         },
         row2TxtAni(tl, aniPosition = null) {
@@ -209,7 +225,7 @@
                 // mask: "lines",
                 autoSplit: true,
                 onSplit(self) {
-                    return tl.from(self.words, {
+                    return tl.addLabel("txt2").from(self.words, {
                         duration: 2,
                         y: 100,
                         autoAlpha: 0,
@@ -219,11 +235,24 @@
             });
         },
         row2ImgAni(tl, aniPosition = null) {
-            tl.from(".cut-3-row-2 .cut-3-img img", {
-                duration: 1,
-                scale: 1.2,
-            }, aniPosition);
-        },
+            gsap.timeline({
+                scrollTrigger: {
+                    // markers: true,
+                    trigger: ".cut-3-row-2",
+                    start: "top 75%",
+                    end: "bottom 75%",
+                    scrub: 1
+                }
+            })
+            .from(
+                ".cut-3-row-2 .cut-3-img img",
+                {
+                    duration: 1,
+                    scale: 1.2
+                },
+                aniPosition
+            );
+        }
     };
 
     const formField = () => {

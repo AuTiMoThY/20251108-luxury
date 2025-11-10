@@ -40,7 +40,7 @@
 
 .cut-3-img {
     width: set-vw(979, 1920);
-
+    overflow: hidden;
     @include rwd-tablet() {
         width: 100%;
         overflow-x: scroll;

@@ -2,7 +2,7 @@ import { commonScrollTrigger } from "../common/scroll-trigger";
 import { mediaQuery } from "../common/mediaQuery";
 
 export const cut3Ani = {
-    txtVarsProperty : {
+    txtVarsProperty: {
         y: "3vw",
         scale: !mediaQuery().matches ? 1.1 : 1.4,
         stagger: 0.15,
@@ -15,8 +15,8 @@ export const cut3Ani = {
             scrollTrigger: {
                 markers: true,
                 trigger: ".cut-3-row-1",
-                start: "10% 75%",
-                end: "50% 75%",
+                start: "-20% 75%",
+                end: "+=50%",
                 scrub: 1
             }
         });
@@ -25,8 +25,8 @@ export const cut3Ani = {
             scrollTrigger: {
                 // markers: true,
                 trigger: ".cut-3-row-2",
-                start: "10% 75%",
-                end: "center 75%",
+                start: "-20% 75%",
+                end: "+=50%",
                 scrub: 1
             }
         });
@@ -38,12 +38,13 @@ export const cut3Ani = {
         this.row2SubtitleAni(row2Tl, "<+0.3");
         this.row2TxtAni(row2Tl, "<+0.3");
         this.row2ImgAni(row2Tl, "<+0.3");
-
     },
     row1TitleAni(tl, aniPosition = null) {
+        tl.addLabel("title");
         tl.from(".cut-3-row-1 .title", this.txtVarsProperty, aniPosition);
     },
     row1SubtitleAni(tl, aniPosition = null) {
+        tl.addLabel("subtitle");
         tl.from(".cut-3-row-1 .subtitle", this.txtVarsProperty, aniPosition);
     },
     row1TxtAni(tl, aniPosition = null) {
@@ -53,7 +54,7 @@ export const cut3Ani = {
             // mask: "lines",
             autoSplit: true,
             onSplit(self) {
-                return tl.from(self.words, {
+                return tl.addLabel("txt").from(self.words, {
                     duration: 2,
                     y: 100,
                     autoAlpha: 0,
@@ -63,15 +64,30 @@ export const cut3Ani = {
         });
     },
     row1ImgAni(tl, aniPosition = null) {
-        tl.from(".cut-3-row-1 .cut-3-img img", {
-            duration: 1,
-            scale: 1.2,
-        }, aniPosition);
+        gsap.timeline({
+            scrollTrigger: {
+                // markers: true,
+                trigger: ".cut-3-row-1",
+                start: "top 75%",
+                end: "bottom 75%",
+                scrub: 1
+            }
+        })
+        .from(
+            ".cut-3-row-1 .cut-3-img img",
+            {
+                duration: 1,
+                scale: 1.2
+            },
+            aniPosition
+        );
     },
     row2TitleAni(tl, aniPosition = null) {
+        tl.addLabel("title2");
         tl.from(".cut-3-row-2 .title", this.txtVarsProperty, aniPosition);
     },
     row2SubtitleAni(tl, aniPosition = null) {
+        tl.addLabel("subtitle2");
         tl.from(".cut-3-row-2 .subtitle", this.txtVarsProperty, aniPosition);
     },
     row2TxtAni(tl, aniPosition = null) {
@@ -81,7 +97,7 @@ export const cut3Ani = {
             // mask: "lines",
             autoSplit: true,
             onSplit(self) {
-                return tl.from(self.words, {
+                return tl.addLabel("txt2").from(self.words, {
                     duration: 2,
                     y: 100,
                     autoAlpha: 0,
@@ -91,9 +107,22 @@ export const cut3Ani = {
         });
     },
     row2ImgAni(tl, aniPosition = null) {
-        tl.from(".cut-3-row-2 .cut-3-img img", {
-            duration: 1,
-            scale: 1.2,
-        }, aniPosition);
-    },
+        gsap.timeline({
+            scrollTrigger: {
+                // markers: true,
+                trigger: ".cut-3-row-2",
+                start: "top 75%",
+                end: "bottom 75%",
+                scrub: 1
+            }
+        })
+        .from(
+            ".cut-3-row-2 .cut-3-img img",
+            {
+                duration: 1,
+                scale: 1.2
+            },
+            aniPosition
+        );
+    }
 };

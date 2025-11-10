@@ -30,13 +30,15 @@
         width: 100%;
 
         &-line {
-            width: 1px;
-            height: set-vw(113, 1920);
-            background-color: #fff;
-            margin-bottom: set-vw(23, 1920);
-            @include rwd-tablet() {
-                height: set-vw(88, 768);
-                margin-bottom: set-vw(25, 768);
+            .inner {
+                width: 1px;
+                height: set-vw(113, 1920);
+                background-color: #fff;
+                margin-bottom: set-vw(23, 1920);
+                @include rwd-tablet() {
+                    height: set-vw(88, 768);
+                    margin-bottom: set-vw(25, 768);
+                }
             }
         }
     }
